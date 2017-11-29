@@ -136,7 +136,7 @@ section::before,section::after {
     top:-5px;
 }
 .navbar-nav>li:nth-child(3) {
-    margin-right: 110px;
+    margin-right: 190px;
 }
 
 
@@ -482,7 +482,7 @@ section::before,section::after {
         display:block !important;
         width:150px;
         left:50%;
-        margin-left:-55px;
+        margin-left:-25px;
         background:black;
         -webkit-border-radius:0 0 100% 100%;
         -moz-border-radius:0 0 100% 100%;
@@ -502,4 +502,8 @@ section::before,section::after {
         text-align: left;
         margin-top: 30px;
     }
+}
+
+#anfahrt {
+    color: #000;
 }

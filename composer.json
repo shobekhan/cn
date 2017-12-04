@@ -1,0 +1,12 @@
+{
+    "name": "shoaib/choco-chilo",
+    "authors": [
+        {
+            "name": "shobekhan",
+            "email": "shobekhan@yahoo.com"
+        }
+    ],
+    "require": {
+        "swiftmailer/swiftmailer": "5.4.8"
+    }
+}

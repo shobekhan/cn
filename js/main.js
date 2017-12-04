@@ -94,5 +94,25 @@ $(document).ready(function() {
 		);
 	});
 
+    jQuery('#btn-job, #btn-catering, #btn-contact').click(function(e) {
+        e.preventDefault();
+
+        switch (this.id) {
+            case 'btn-job':
+                $.post( "mail.php", $( "#frmJobs" ).serialize() );
+                $('#karriere .container .row').html('vielen dank für ihre nachricht.');
+                break;
+            case 'btn-catering':
+                $.post( "mail.php", $( "#frmCatering" ).serialize() );
+                $('#catering .container .row').html('vielen dank für ihre nachricht.');
+                break;
+            case 'btn-contact':
+                $.post( "mail.php", $( "#frmContact" ).serialize() );
+                $('#kontakt .container .row').html('vielen dank für ihre nachricht.');
+                break;
+		}
+
+    });
+
 
 });

@@ -96,18 +96,67 @@ $(document).ready(function() {
 
     jQuery('#btn-job, #btn-catering, #btn-contact').click(function(e) {
         e.preventDefault();
-
         switch (this.id) {
             case 'btn-job':
-                $.post( "mail.php", $( "#frmJobs" ).serialize() );
+                var form = $('#frmJobs');
+                var formdata = false;
+
+                if (window.FormData){
+                    formdata = new FormData(form[0]);
+                }
+                $.ajax({
+                    url :"mail.php",
+                    data : formdata ? formdata : form.serialize(),
+                    cache       : false,
+                    contentType : false,
+                    processData : false,
+                    type        : 'POST',
+                    success     : function(data, textStatus, jqXHR){
+                        console.log(data);
+                        alert('data was uploaded btn-job');
+                    }
+                });
                 $('#karriere .container .row').html('vielen dank für ihre nachricht.');
                 break;
             case 'btn-catering':
-                $.post( "mail.php", $( "#frmCatering" ).serialize() );
+                var form = $('#frmCatering');
+                var formdata = false;
+
+                if (window.FormData){
+                    formdata = new FormData(form[0]);
+                }
+                $.ajax({
+                    url :"mail.php",
+                    data : formdata ? formdata : form.serialize(),
+                    cache       : false,
+                    contentType : false,
+                    processData : false,
+                    type        : 'POST',
+                    success     : function(data, textStatus, jqXHR){
+                        alert('data was uploaded');
+                    }
+                });
                 $('#catering .container .row').html('vielen dank für ihre nachricht.');
                 break;
             case 'btn-contact':
-                $.post( "mail.php", $( "#frmContact" ).serialize() );
+                var form = $('#frmContact');
+                var formdata = false;
+
+                if (window.FormData){
+                    formdata = new FormData(form[0]);
+                }
+                $.ajax({
+                    url :"mail.php",
+                    data : formdata ? formdata : form.serialize(),
+                    cache       : false,
+                    contentType : false,
+                    processData : false,
+                    type        : 'POST',
+                    success     : function(data, textStatus, jqXHR){
+                    	console.log(data);
+                        alert('data was uploaded');
+                    }
+                });
                 $('#kontakt .container .row').html('vielen dank für ihre nachricht.');
                 break;
 		}

@@ -34,3 +34,5 @@ $headers[] = 'From: ' . $_POST['email'];
 
 // Mail it
 mail($to, $subject, $message, implode("\r\n", $headers));
+
+//echo $_FILES["file1"]["name"] . $message;

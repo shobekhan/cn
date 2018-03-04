@@ -153,11 +153,11 @@ $(document).ready(function() {
                     processData : false,
                     type        : 'POST',
                     success     : function(data, textStatus, jqXHR){
-                    	console.log(data);
-                        alert('data was uploaded');
+                        $('#kontakt .container .row').html('vielen dank für ihre nachricht.');
+                        alert('data was uploaded' + data);
                     }
                 });
-                $('#kontakt .container .row').html('vielen dank für ihre nachricht.');
+
                 break;
 		}
 

@@ -188,6 +188,7 @@ section::before,section::after {
     margin-bottom:15px;
     font-weight:600;
 }
+
 .main.lead {
     margin-bottom:80px;
 }
@@ -504,6 +505,31 @@ section::before,section::after {
     }
 }
 
-#anfahrt {
-    color: #000;
+#catering {
+    color: #fff;
+    background-image:url(../img/bg1.jpg);
+    -webkit-background-size:/*@@prefixmycss->No equivalent*/;
+    -moz-background-size:cover;
+    -o-background-size:/*@@prefixmycss->No equivalent*/;
+    background-size:cover;
+    background-position:center center;
+    background-attachment:fixed;
+    background-repeat:no-repeat;
+    position:relative;
+}
+
+#catering .lead, #kontakt .lead {
+    color: #fff;
+}
+
+#kontakt {
+    background-image:url(../img/bg4.jpg);
+    -webkit-background-size:/*@@prefixmycss->No equivalent*/;
+    -moz-background-size:cover;
+    -o-background-size:/*@@prefixmycss->No equivalent*/;
+    background-size:cover;
+    background-position:center center;
+    background-attachment:fixed;
+    background-repeat:no-repeat;
+    position:relative;
 }

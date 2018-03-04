@@ -1,7 +1,7 @@
 <?php
 require_once 'vendor/autoload.php';
 
-$to = 'shobekhan@yahoo.com';
+$to = 'shobekhan@gmail.com';
 $subject = 'Email from website';
 
 $message = '
@@ -32,14 +32,16 @@ $message .= '
 </body>
 </html>';
 
-$transport = new Swift_SendmailTransport('/usr/sbin/sendmail -bs');
+//$transport = new Swift_MailTransport('-f %s');
+$transport = new Swift_SendmailTransport('/usr/sbin/sendmail -t -i');
+
 
 // Create the Mailer using your created Transport
 $mailer = new Swift_Mailer($transport);
 
 // Create a message
 $messageObj = (new Swift_Message('Email von webseite'))
-    ->setFrom($_POST['email'])
+    ->setFrom(['shobekhan@yahoo.com'])
     ->setTo([$to])
     ->setBody($message);
 
@@ -61,7 +63,7 @@ if (isset($_FILES["file2"])) {
 
 try {
     $result = $mailer->send($messageObj);
-    echo 'done';
+    echo 'done'.$result;
 } catch (Exception $e) {
     echo $e->getMessage();
 }

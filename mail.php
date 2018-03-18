@@ -1,7 +1,7 @@
 <?php
 require_once 'vendor/autoload.php';
 
-$to = 'shobekhan@gmail.com';
+$to = 'shobekhan@yahoo.com';
 $subject = 'Email from website';
 
 $message = '
@@ -33,17 +33,16 @@ $message .= '
 </html>';
 
 //$transport = new Swift_MailTransport('-f %s');
-$transport = new Swift_SendmailTransport('/usr/sbin/sendmail -t -i');
-
+$transport = (new Swift_SmtpTransport('radar.dnsnetservice.com', 25));
 
 // Create the Mailer using your created Transport
 $mailer = new Swift_Mailer($transport);
 
 // Create a message
 $messageObj = (new Swift_Message('Email von webseite'))
-    ->setFrom(['shobekhan@yahoo.com'])
+    ->setFrom(['shobekhan@gmail.com'])
     ->setTo([$to])
-    ->setBody($message);
+    ->setBody($message, 'text/html');
 
 $targetDir = "uploads/";
 if (isset($_FILES["file1"])) {
@@ -52,6 +51,7 @@ if (isset($_FILES["file1"])) {
     $fileUploadStatus = move_uploaded_file($_FILES["file1"]["tmp_name"], $targetFile);
     //chmod($targetFile, 0777);
     $messageObj->attach(Swift_Attachment::fromPath($targetFile));
+    //unlink($targetFile);
 }
 if (isset($_FILES["file2"])) {
     $fileName = basename($_FILES["file2"]["name"]);
@@ -59,11 +59,12 @@ if (isset($_FILES["file2"])) {
     $fileUploadStatus = move_uploaded_file($_FILES["file2"]["tmp_name"], $targetFile);
     //chmod($targetFile, 0777);
     $messageObj->attach(Swift_Attachment::fromPath($targetFile));
+    //unlink($targetFile);
 }
 
 try {
     $result = $mailer->send($messageObj);
-    echo 'done'.$result;
+    echo 'done';
 } catch (Exception $e) {
     echo $e->getMessage();
 }

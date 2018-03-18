@@ -136,8 +136,9 @@ section::before,section::after {
     top:-5px;
 }
 .navbar-nav>li:nth-child(3) {
-    margin-right: 200px;
+    margin-right: 210px;
 }
+
 
 
 /* ==========================================================================
@@ -481,9 +482,9 @@ section::before,section::after {
     #logo {
         position:absolute;
         display:block !important;
-        width:150px;
+        width:200px;
         left:48%;
-        margin-left:-40px;
+        margin-left:-65px;
         background:black;
         -webkit-border-radius:0 0 100% 100%;
         -moz-border-radius:0 0 100% 100%;
